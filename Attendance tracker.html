@@ -2,133 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Attendance Tracker</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Portfolio - Your Name</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f4f7;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
-
-        .container {
-            width: 450px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
         }
-
-        input {
-            width: 65%;
-            padding: 8px;
+        header h1 {
+            margin: 0;
         }
-
-        button {
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
+        nav {
             text-align: center;
+            margin: 10px 0;
         }
-
-        th {
-            background-color: #eee;
-        }
-
-        .summary {
-            margin-top: 15px;
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #0077b6;
             font-weight: bold;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        h2 {
+            border-bottom: 2px solid #0077b6;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0077b6;
+            color: #fff;
+            margin-top: 20px;
         }
     </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>Attendance Tracker</h1>
+    <header>
+        <h1>Your Name</h1>
+        <p>Student | Beginner Developer</p>
+    </header>
 
-    <input type="text" id="studentName" placeholder="Enter student name">
-    <button onclick="addStudent()">Add</button>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Present</th>
-                <th>Absent</th>
-            </tr>
-        </thead>
-        <tbody id="studentTable">
-        </tbody>
-    </table>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate learner and beginner developer exploring programming and web development. 
+            I enjoy solving problems and building simple projects to enhance my skills.
+        </p>
+    </section>
 
-    <div class="summary">
-        <p>Total Present: <span id="presentCount">0</span></p>
-        <p>Total Absent: <span id="absentCount">0</span></p>
-    </div>
-</div>
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>JavaScript (Basics)</li>
+            <li>Python & Java (Basics)</li>
+            <li>Problem Solving</li>
+        </ul>
+    </section>
 
-<script>
-    let presentCount = 0;
-    let absentCount = 0;
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>Simple Calculator</li>
+            <li>Portfolio Website</li>
+            <li>Student Management System</li>
+        </ul>
+    </section>
 
-    function addStudent() {
-        let name = document.getElementById("studentName").value.trim();
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: yourname@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+        <p>LeetCode: <a href="https://leetcode.com/yourusername" target="_blank">leetcode.com/yourusername</a></p>
+    </section>
 
-        if (name === "") {
-            alert("Please enter student name");
-            return;
-        }
-
-        let table = document.getElementById("studentTable");
-        let row = table.insertRow();
-
-        let nameCell = row.insertCell(0);
-        let presentCell = row.insertCell(1);
-        let absentCell = row.insertCell(2);
-
-        nameCell.innerText = name;
-
-        let presentBtn = document.createElement("button");
-        presentBtn.innerText = "Present";
-
-        let absentBtn = document.createElement("button");
-        absentBtn.innerText = "Absent";
-
-        presentBtn.onclick = function () {
-            presentCount++;
-            document.getElementById("presentCount").innerText = presentCount;
-            presentBtn.disabled = true;
-            absentBtn.disabled = true;
-        };
-
-        absentBtn.onclick = function () {
-            absentCount++;
-            document.getElementById("absentCount").innerText = absentCount;
-            presentBtn.disabled = true;
-            absentBtn.disabled = true;
-        };
-
-        presentCell.appendChild(presentBtn);
-        absentCell.appendChild(absentBtn);
-
-        document.getElementById("studentName").value = "";
-    }
-</script>
+    <footer>
+        &copy; 2025 Your Name. All rights reserved.
+    </footer>
 
 </body>
 </html>
