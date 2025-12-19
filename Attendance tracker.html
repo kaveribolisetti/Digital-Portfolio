@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f7;
+        }
+
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 65%;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        .summary {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Attendance Tracker</h1>
+
+    <input type="text" id="studentName" placeholder="Enter student name">
+    <button onclick="addStudent()">Add</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Present</th>
+                <th>Absent</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable">
+        </tbody>
+    </table>
+
+    <div class="summary">
+        <p>Total Present: <span id="presentCount">0</span></p>
+        <p>Total Absent: <span id="absentCount">0</span></p>
+    </div>
+</div>
+
+<script>
+    let presentCount = 0;
+    let absentCount = 0;
+
+    function addStudent() {
+        let name = document.getElementById("studentName").value.trim();
+
+        if (name === "") {
+            alert("Please enter student name");
+            return;
+        }
+
+        let table = document.getElementById("studentTable");
+        let row = table.insertRow();
+
+        let nameCell = row.insertCell(0);
+        let presentCell = row.insertCell(1);
+        let absentCell = row.insertCell(2);
+
+        nameCell.innerText = name;
+
+        let presentBtn = document.createElement("button");
+        presentBtn.innerText = "Present";
+
+        let absentBtn = document.createElement("button");
+        absentBtn.innerText = "Absent";
+
+        presentBtn.onclick = function () {
+            presentCount++;
+            document.getElementById("presentCount").innerText = presentCount;
+            presentBtn.disabled = true;
+            absentBtn.disabled = true;
+        };
+
+        absentBtn.onclick = function () {
+            absentCount++;
+            document.getElementById("absentCount").innerText = absentCount;
+            presentBtn.disabled = true;
+            absentBtn.disabled = true;
+        };
+
+        presentCell.appendChild(presentBtn);
+        absentCell.appendChild(absentBtn);
+
+        document.getElementById("studentName").value = "";
+    }
+</script>
+
+</body>
+</html>
