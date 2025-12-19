@@ -3,24 +3,24 @@ A personal digital portfolio website designed to showcase skills, projects, and 
 
 📁 Website Sections
 
-About Me,
+About Me
 
-Skills,
+Skills
 
-Projects,
+Projects
 
 Contact Information.
 
 ⚙️ Workflow
 
-Structure: HTML used to organize content and sections,
+Structure: HTML used to organize content and sections
 
-Styling: CSS used for layout, colors, typography, and responsiveness,
+Styling: CSS used for layout, colors, typography, and responsiveness
 
-Design Focus: Simple, modern, and user-friendly interface,
+Design Focus: Simple, modern, and user-friendly interface
 
 🛠️ Tech Stack
 
-HTML,
+HTML
 
 CSS
